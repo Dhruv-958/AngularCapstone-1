@@ -1,0 +1,23 @@
+<div style="margin: 20px;">
+    <h2 style="text-align: center;">~~~ Past Orders ~~~</h2>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+      <thead>
+        <tr style="background-color: black; color: white;">
+          <th class="titles">Order ID</th>
+          <th class="titles">Product Name</th>
+          <th class="titles">Quantity</th>
+          <th class="titles">Bill Amount</th>
+          <th class="titles">Transaction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders" [hidden]="order.transaction !== 'Completed'">
+          <td class="items">{{ order.orderid }}</td>
+          <td class="items">{{ order.productName }}</td>
+          <td class="items">{{ order.quantity }}</td>
+          <td class="items">{{ order.billAmount }}</td>
+          <td class="items">{{ order.transaction }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

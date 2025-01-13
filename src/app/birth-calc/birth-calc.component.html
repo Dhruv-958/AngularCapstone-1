@@ -1,0 +1,20 @@
+<div style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1 style="color: yellow;">When was I born?</h1>
+    <label for="age"><h2>Enter Your Age</h2></label>
+    <input 
+      name="age"
+      type="number" 
+      #ageInput="ngModel"
+      [(ngModel)]="age"
+      style="padding: 5px; width: 70%; margin-bottom: 10px;"
+      [ngClass]="{ 'invalid': ageInput.invalid && ageInput.touched }"
+      required
+      min="1"
+    />
+    <br />
+    <button (click)="calculateBirthYear()" style="padding: 5px 10px;">Show Birth Year</button>
+    <div *ngIf="birthYear" style="margin-top: 20px;">
+      <p>Your Birth Year: {{ birthYear }}</p>
+      <p>{{ message }}</p>
+    </div>
+  </div>

@@ -1,0 +1,42 @@
+<div style="width: 300px; margin: 50px auto; text-align: center;">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div style="margin-bottom: 15px; text-align: left;">
+        <label for="username">Username</label><br />
+        <input
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          required
+          style="width: 100%; padding: 8px; margin-top: 5px;"
+        />
+        <div *ngIf="submitted && !username" style="color: red; font-size: 12px;">
+          Username is required.
+        </div>
+      </div>
+
+      <div style="margin-bottom: 15px; text-align: left;">
+        <label for="password">Password</label><br />
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          style="width: 100%; padding: 8px; margin-top: 5px;"
+        />
+        <div *ngIf="submitted && !password" style="color: red; font-size: 12px;">
+          Password is required.
+        </div>
+      </div>
+
+      <button type="submit" style="padding: 10px 20px;">Login</button>
+
+      <div *ngIf="errorMessage" style="color: red; margin-top: 15px;">
+        {{ errorMessage }}
+      </div>
+
+      <div *ngIf="loginSuccess">
+        <p style="color: green;">Login Success!</p>
+      </div>
+    </form>
+  </div>
